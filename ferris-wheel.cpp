@@ -5,6 +5,9 @@
 using namespace std;
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
     int r, l, limit, total = l = 0;
     cin >> r >> limit;
     vector<int> w(r);
@@ -26,6 +29,6 @@ int main(){
             total++;
         }
     }
-    cout << total << endl;
+    cout << total;
     return 0;
 }

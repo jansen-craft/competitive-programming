@@ -1,38 +1,35 @@
 #include <iostream>
 #include <vector>
 //#include <bits/stdc++.h>
-
+ 
 using namespace std;
-
+ 
 int main(){
-    int n, m, k, l, u, c, total, as_index, ds_index = total = as_index = 0;
-    vector<int> desired_size;
-    vector<int> apartment_size;
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+ 
+    int n, m, k, total=0, as_index=0, ds_index=0;
     cin >> n >> m >> k;
-
+    vector<int> desired_size(n);
+    vector<int> apartment_size(m);
+ 
     for (int i = 0; i < n; i++){
-        cin >> l;
-        desired_size.push_back(l);
+        cin >> desired_size[i];
     }
-
+ 
     for (int i = 0; i < m; i++){
-        cin >> l;
-        apartment_size.push_back(l);
+        cin >> apartment_size[i];
     }
-
+ 
     sort(apartment_size.begin(), apartment_size.end());
     sort(desired_size.begin(), desired_size.end());
     
-    while(as_index < m && ds_index < n){
-        l = desired_size[ds_index] - k;
-        u = l + k + k;
-        c = apartment_size[as_index];
-
-        if(c >= l && c <= u){
+    while(as_index < m && ds_index < n){ 
+        if(apartment_size[as_index] >= (desired_size[ds_index] - k) && apartment_size[as_index] <= (desired_size[ds_index] + k)){
             as_index++;
             ds_index++;
             total++;
-        } else if(c < l){
+        } else if(apartment_size[as_index] < (desired_size[ds_index] - k)){
             as_index++;
         } else {
             ds_index++;
