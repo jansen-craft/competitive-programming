@@ -7,5 +7,4 @@ all:
 	$(COMPILE) $< -o $@+
 
 clean: 
-	-rm -f *+
-	-rm *.txt
+	-@rm -f *+ *.txt
