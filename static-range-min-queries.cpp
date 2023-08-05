@@ -17,7 +17,9 @@ int main(){
     long long num_values, num_queries;
     cin >> num_values >> num_queries;
     vector<long long> values(num_values+1);
-    vector<vector<int>> preprocess(num_values+1, vector<int> (num_values+1)); 
+    int size = 0;
+    while((1<<(size+1)) <= num_values) size++;
+    vector<vector<int>> preprocess(num_values+1, vector<int> (size+1));
 
     //read inputs
     for (int i = 0; i < num_values; i++){
