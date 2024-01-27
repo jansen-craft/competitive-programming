@@ -1,5 +1,5 @@
 .vscode
-
+tmp
 *.txt
 *+
 input
